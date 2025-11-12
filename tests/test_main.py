@@ -18,3 +18,9 @@ def test_add_numbers():
 def test_multiply_numbers():
     assert multiply_numbers(3, 4) == 12
     assert multiply_numbers(0, 5) == 0
+
+
+def test_calculate_add():
+    response = client.post("/calculate?a=5&b=3&operation=add")
+    assert response.status_code == 200
+    assert response.json() == {"result": 8}
